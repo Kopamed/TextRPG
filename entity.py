@@ -120,4 +120,4 @@ class Knight(Entity):
     def generate_name() -> str:
         with open("assets/name_syllables.yml", "r") as stream:
             name_syllables = yaml.safe_load(stream)
-        return "".join(random.sample(name_syllables["syllables"][EntityType.KNIGHT.value], 3))
+        return "".join(random.sample(name_syllables["syllables"][EntityType.KNIGHT.value], 2))
