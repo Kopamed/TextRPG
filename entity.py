@@ -1,5 +1,7 @@
 from abc import abstractmethod, ABC
 from enum import Enum
+import yaml
+import random
 
 
 class EntityType(Enum):
@@ -38,7 +40,9 @@ class Barbarian(Entity, ABC):
 
     @staticmethod
     def generate_name() -> str:
-        return ""
+        with open("assets/name_syllables.yml", "r") as stream:
+            name_syllables = yaml.safe_load(stream)
+        return "".join(random.sample(name_syllables[EntityType.BARBARIAN.value], 3))
 
 
 class Elf(Entity, ABC):
@@ -47,7 +51,9 @@ class Elf(Entity, ABC):
 
     @staticmethod
     def generate_name() -> str:
-        return ""
+        with open("assets/name_syllables.yml", "r") as stream:
+            name_syllables = yaml.safe_load(stream)
+        return "-".join(random.sample(name_syllables[EntityType.ELF.value], 3))
 
 
 class Wizard(Entity, ABC):
@@ -56,7 +62,9 @@ class Wizard(Entity, ABC):
 
     @staticmethod
     def generate_name() -> str:
-        return ""
+        with open("assets/name_syllables.yml", "r") as stream:
+            name_syllables = yaml.safe_load(stream)
+        return "-".join(random.sample(name_syllables[EntityType.WIZARD.value], 3))
 
 
 class Dragon(Entity, ABC):
@@ -65,7 +73,9 @@ class Dragon(Entity, ABC):
 
     @staticmethod
     def generate_name() -> str:
-        return ""
+        with open("assets/name_syllables.yml", "r") as stream:
+            name_syllables = yaml.safe_load(stream)
+        return "-".join(random.sample(name_syllables[EntityType.DRAGON.value], 3))
 
 
 class Knight(Entity, ABC):
@@ -74,4 +84,6 @@ class Knight(Entity, ABC):
 
     @staticmethod
     def generate_name() -> str:
-        return ""
+        with open("assets/name_syllables.yml", "r") as stream:
+            name_syllables = yaml.safe_load(stream)
+        return "".join(random.sample(name_syllables[EntityType.KNIGHT.value], 3))
