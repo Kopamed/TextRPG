@@ -1,3 +1,5 @@
+from __future__ import annotations
+from typing import List
 from abc import abstractmethod, ABC
 from enum import Enum
 import yaml
@@ -29,16 +31,16 @@ class Entity(ABC):
     def special_attack(self):
         pass
 
-    @abstractmethod
-    def attack(self):
-        pass
+    def attack(self, targets: List[Entity]):
+        for target in targets:
+            if target.health > self.power:
+                target.health -= self.power
+            else:
+                target.health = 0
 
 
 class Barbarian(Entity):
     def special_attack(self):
-        pass
-
-    def attack(self):
         pass
 
     def __init__(self):
@@ -56,9 +58,6 @@ class Elf(Entity):
     def special_attack(self):
         pass
 
-    def attack(self):
-        pass
-
     def __init__(self):
         super().__init__(self.generate_name(), EntityType.ELF, 10, 30, 60)
 
@@ -72,9 +71,6 @@ class Elf(Entity):
 class Wizard(Entity):
 
     def special_attack(self):
-        pass
-
-    def attack(self):
         pass
 
     def __init__(self):
@@ -92,9 +88,6 @@ class Dragon(Entity):
     def special_attack(self):
         pass
 
-    def attack(self):
-        pass
-
     def __init__(self):
         super().__init__(self.generate_name(), EntityType.DRAGON, 50, 90, 40)
 
@@ -108,9 +101,6 @@ class Dragon(Entity):
 class Knight(Entity):
 
     def special_attack(self):
-        pass
-
-    def attack(self):
         pass
 
     def __init__(self):
