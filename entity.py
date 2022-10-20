@@ -28,13 +28,47 @@ class Entity(ABC):
     def attack(self):
         pass
 
-    @classmethod
-    def generate_name(cls, entity_type: EntityType) -> str:
+
+class Barbarian(Entity, ABC):
+    def __init__(self):
+        super().__init__(self.generate_name(), EntityType.BARBARIAN, 50, 70, 20)
+
+    @staticmethod
+    def generate_name() -> str:
         return ""
 
-    @classmethod
-    def from_entity_type(cls, entity_type: EntityType):
-        if entity_type == EntityType.BARBARIAN:
-            return cls(cls.generate_name(entity_type), entity_type, 50, 70, 20)
+
+class Elf(Entity, ABC):
+    def __init__(self):
+        super().__init__(self.generate_name(), EntityType.ELF, 10, 30, 60)
+
+    @staticmethod
+    def generate_name() -> str:
+        return ""
 
 
+class Wizard(Entity, ABC):
+    def __init__(self):
+        super().__init__(self.generate_name(), EntityType.WIZARD, 30, 50, 70)
+
+    @staticmethod
+    def generate_name() -> str:
+        return ""
+
+
+class Dragon(Entity, ABC):
+    def __init__(self):
+        super().__init__(self.generate_name(), EntityType.DRAGON, 50, 90, 40)
+
+    @staticmethod
+    def generate_name() -> str:
+        return ""
+
+
+class Knight(Entity, ABC):
+    def __init__(self):
+        super().__init__(self.generate_name(), EntityType.KNIGHT, 60, 60, 10)
+
+    @staticmethod
+    def generate_name() -> str:
+        return ""
