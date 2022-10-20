@@ -23,7 +23,7 @@ class Entity(ABC):
         self.special_attack = special_attack
 
     def __repr__(self):
-        return f"<{self.name} ({self.type}) health={self.health}, power={self.attack}, special_power={self.special_attack}, speed={self.speed}>"
+        return f"<{self.name} ({self.type.name}) health={self.health}, power={self.attack}, special_power={self.special_attack}, speed={self.speed}>"
 
     @abstractmethod
     def special_power(self):
