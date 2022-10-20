@@ -13,20 +13,20 @@ class EntityType(Enum):
 
 
 class Entity(ABC):
-    def __init__(self, name: str, entity_type: EntityType, speed: int, attack: int, special_attack: int,
+    def __init__(self, name: str, entity_type: EntityType, speed: int, power: int, special_power: int,
                  health: int = 100):
         self.name = name
         self.type = entity_type
         self.health = health
         self.speed = speed
-        self.attack = attack
-        self.special_attack = special_attack
+        self.power = power
+        self.special_power = special_power
 
     def __repr__(self):
-        return f"<{self.name} ({self.type.name}) health={self.health}, power={self.attack}, special_power={self.special_attack}, speed={self.speed}>"
+        return f"<{self.name} ({self.type.name}) health={self.health}, power={self.power}, special_power={self.special_power}, speed={self.speed}>"
 
     @abstractmethod
-    def special_power(self):
+    def special_attack(self):
         pass
 
     @abstractmethod
@@ -35,7 +35,7 @@ class Entity(ABC):
 
 
 class Barbarian(Entity):
-    def special_power(self):
+    def special_attack(self):
         pass
 
     def attack(self):
@@ -53,7 +53,7 @@ class Barbarian(Entity):
 
 class Elf(Entity):
 
-    def special_power(self):
+    def special_attack(self):
         pass
 
     def attack(self):
@@ -71,7 +71,7 @@ class Elf(Entity):
 
 class Wizard(Entity):
 
-    def special_power(self):
+    def special_attack(self):
         pass
 
     def attack(self):
@@ -89,7 +89,7 @@ class Wizard(Entity):
 
 class Dragon(Entity):
 
-    def special_power(self):
+    def special_attack(self):
         pass
 
     def attack(self):
@@ -107,7 +107,7 @@ class Dragon(Entity):
 
 class Knight(Entity):
 
-    def special_power(self):
+    def special_attack(self):
         pass
 
     def attack(self):
