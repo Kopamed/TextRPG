@@ -34,7 +34,13 @@ class Entity(ABC):
         pass
 
 
-class Barbarian(Entity, ABC):
+class Barbarian(Entity):
+    def special_power(self):
+        pass
+
+    def attack(self):
+        pass
+
     def __init__(self):
         super().__init__(self.generate_name(), EntityType.BARBARIAN, 50, 70, 20)
 
@@ -42,10 +48,17 @@ class Barbarian(Entity, ABC):
     def generate_name() -> str:
         with open("assets/name_syllables.yml", "r") as stream:
             name_syllables = yaml.safe_load(stream)
-        return "".join(random.sample(name_syllables[EntityType.BARBARIAN.value], 3))
+        return "".join(random.sample(name_syllables["syllables"][EntityType.BARBARIAN.value], 3))
 
 
-class Elf(Entity, ABC):
+class Elf(Entity):
+
+    def special_power(self):
+        pass
+
+    def attack(self):
+        pass
+
     def __init__(self):
         super().__init__(self.generate_name(), EntityType.ELF, 10, 30, 60)
 
@@ -53,10 +66,17 @@ class Elf(Entity, ABC):
     def generate_name() -> str:
         with open("assets/name_syllables.yml", "r") as stream:
             name_syllables = yaml.safe_load(stream)
-        return "-".join(random.sample(name_syllables[EntityType.ELF.value], 3))
+        return "-".join(random.sample(name_syllables["syllables"][EntityType.ELF.value], 3))
 
 
-class Wizard(Entity, ABC):
+class Wizard(Entity):
+
+    def special_power(self):
+        pass
+
+    def attack(self):
+        pass
+
     def __init__(self):
         super().__init__(self.generate_name(), EntityType.WIZARD, 30, 50, 70)
 
@@ -64,10 +84,17 @@ class Wizard(Entity, ABC):
     def generate_name() -> str:
         with open("assets/name_syllables.yml", "r") as stream:
             name_syllables = yaml.safe_load(stream)
-        return "-".join(random.sample(name_syllables[EntityType.WIZARD.value], 3))
+        return "-".join(random.sample(name_syllables["syllables"][EntityType.WIZARD.value], 3))
 
 
-class Dragon(Entity, ABC):
+class Dragon(Entity):
+
+    def special_power(self):
+        pass
+
+    def attack(self):
+        pass
+
     def __init__(self):
         super().__init__(self.generate_name(), EntityType.DRAGON, 50, 90, 40)
 
@@ -75,10 +102,17 @@ class Dragon(Entity, ABC):
     def generate_name() -> str:
         with open("assets/name_syllables.yml", "r") as stream:
             name_syllables = yaml.safe_load(stream)
-        return "-".join(random.sample(name_syllables[EntityType.DRAGON.value], 3))
+        return "-".join(random.sample(name_syllables["syllables"][EntityType.DRAGON.value], 3))
 
 
-class Knight(Entity, ABC):
+class Knight(Entity):
+
+    def special_power(self):
+        pass
+
+    def attack(self):
+        pass
+
     def __init__(self):
         super().__init__(self.generate_name(), EntityType.KNIGHT, 60, 60, 10)
 
@@ -86,4 +120,4 @@ class Knight(Entity, ABC):
     def generate_name() -> str:
         with open("assets/name_syllables.yml", "r") as stream:
             name_syllables = yaml.safe_load(stream)
-        return "".join(random.sample(name_syllables[EntityType.KNIGHT.value], 3))
+        return "".join(random.sample(name_syllables["syllables"][EntityType.KNIGHT.value], 3))
