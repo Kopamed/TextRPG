@@ -2,13 +2,6 @@
 
 
 if __name__ == "__main__":
-    from entity import *
-    b = Barbarian()
-    e = Elf()
-    w = Wizard()
-    d = Dragon()
-    k = Knight()
-    print(b,e,w,d,k,sep="\n")
     """
     allies = Team(2)
     barb = Barbarian(...)
