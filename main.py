@@ -1,8 +1,7 @@
 from entity import *
-from enum import Enum
 
 
-def select_from_list(prompt: str, arr: List[Entity]):
+def select_from_list(prompt: str, arr: List[Entity]) -> Entity:
     while True:
         print(prompt)
         # TODO: Display team[i] stats such as attack and health
@@ -35,7 +34,8 @@ if __name__ == "__main__":
     ]
 
     entity = select_from_list("Select which entity you want to use:", player_team)
-    action = Action.ATTACK if input("Do you want to [a]ttack or use [s]pecial powerup? [a/s]: ").lower() == "a" else Action.SPECIAL_POWERUP
+    action = Action.ATTACK if input(
+        "Do you want to [a]ttack or use [s]pecial powerup? [a/s]: ").lower() == "a" else Action.SPECIAL_POWERUP
     target = select_from_list("Select which enemy do you want to attack:", ai_team)
 
-    #entity.action(target)
+    # entity.action(target)

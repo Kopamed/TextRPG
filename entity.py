@@ -42,10 +42,10 @@ class Entity(ABC):
         return f"<{self.name} ({self.type.name}) health={self.health}, power={self.power}, special_power={self.special_power}, speed={self.speed}>"
 
     @abstractmethod
-    def special_powerup(self):
+    def special_powerup(self) -> None:
         pass
 
-    def attack(self, targets: List[Entity]):
+    def attack(self, targets: List[Entity]) -> None:
         """@:param targets All the entities you want the entity to attack. All the targets will be dealt the
         entitie's power value """
 
@@ -72,7 +72,7 @@ class Barbarian(Entity):
 
 class Elf(Entity):
 
-    def special_powerup(self):
+    def special_powerup(self) -> None:
         pass
 
     def __init__(self):
@@ -87,7 +87,7 @@ class Elf(Entity):
 
 class Wizard(Entity):
 
-    def special_powerup(self):
+    def special_powerup(self) -> None:
         pass
 
     def __init__(self):
@@ -102,7 +102,7 @@ class Wizard(Entity):
 
 class Dragon(Entity):
 
-    def special_powerup(self):
+    def special_powerup(self) -> None:
         pass
 
     def __init__(self):
@@ -117,7 +117,7 @@ class Dragon(Entity):
 
 class Knight(Entity):
 
-    def special_powerup(self):
+    def special_powerup(self) -> None:
         pass
 
     def __init__(self):
