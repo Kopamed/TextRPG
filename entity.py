@@ -7,11 +7,13 @@ import random
 
 
 class PrintableEnum(Enum):
+    """Metaclass for enums which values will be show to the user"""
     def __str__(self):
         return self.name
 
 
 class EntityType(PrintableEnum):
+    """Enum containing all the existing entity types"""
     BARBARIAN = 0
     ELF = 1
     WIZARD = 2
@@ -20,11 +22,13 @@ class EntityType(PrintableEnum):
 
 
 class Action(PrintableEnum):
+    """Enum containing all the existing action types"""
     ATTACK = 0
     SPECIAL_POWERUP = 1
 
 
 class Entity(ABC):
+    """Metaclass for all entities"""
     def __init__(self, name: str, entity_type: EntityType, speed: int, power: int, special_power: int,
                  health: int = 100):
         self.name = name
@@ -42,6 +46,9 @@ class Entity(ABC):
         pass
 
     def attack(self, targets: List[Entity]):
+        """@:param targets All the entities you want the entity to attack. All the targets will be dealt the
+        entitie's power value """
+
         for target in targets:
             if target.health > self.power:
                 target.health -= self.power
