@@ -6,12 +6,22 @@ import yaml
 import random
 
 
-class EntityType(Enum):
+class PrintableEnum(Enum):
+    def __str__(self):
+        return self.name
+
+
+class EntityType(PrintableEnum):
     BARBARIAN = 0
     ELF = 1
     WIZARD = 2
     DRAGON = 3
     KNIGHT = 4
+
+
+class Action(PrintableEnum):
+    ATTACK = 0
+    SPECIAL_POWERUP = 1
 
 
 class Entity(ABC):
@@ -28,7 +38,7 @@ class Entity(ABC):
         return f"<{self.name} ({self.type.name}) health={self.health}, power={self.power}, special_power={self.special_power}, speed={self.speed}>"
 
     @abstractmethod
-    def special_attack(self):
+    def special_powerup(self):
         pass
 
     def attack(self, targets: List[Entity]):
@@ -40,7 +50,7 @@ class Entity(ABC):
 
 
 class Barbarian(Entity):
-    def special_attack(self):
+    def special_powerup(self):
         pass
 
     def __init__(self):
@@ -55,7 +65,7 @@ class Barbarian(Entity):
 
 class Elf(Entity):
 
-    def special_attack(self):
+    def special_powerup(self):
         pass
 
     def __init__(self):
@@ -70,7 +80,7 @@ class Elf(Entity):
 
 class Wizard(Entity):
 
-    def special_attack(self):
+    def special_powerup(self):
         pass
 
     def __init__(self):
@@ -85,7 +95,7 @@ class Wizard(Entity):
 
 class Dragon(Entity):
 
-    def special_attack(self):
+    def special_powerup(self):
         pass
 
     def __init__(self):
@@ -100,7 +110,7 @@ class Dragon(Entity):
 
 class Knight(Entity):
 
-    def special_attack(self):
+    def special_powerup(self):
         pass
 
     def __init__(self):

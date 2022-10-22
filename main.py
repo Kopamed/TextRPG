@@ -1,23 +1,41 @@
+from entity import *
+from enum import Enum
 
+
+def select_from_list(prompt: str, arr: List[Entity]):
+    while True:
+        print(prompt)
+        # TODO: Display team[i] stats such as attack and health
+        print(
+            "\n".join(
+                f"[{i}] {arr[i].type}: {arr[i].name}" for i in range(len(arr))
+            )
+        )
+        try:
+            n = int(input())
+        except ValueError:
+            continue
+
+        if n < len(arr):
+            return arr[n]
 
 
 if __name__ == "__main__":
-    """
-    allies = Team(2)
-    barb = Barbarian(...)
-    goblin = Goblin(...)
+    player_turn = True
 
-    allies.add(barb)\
-        .add(goblin)
+    player_team = [
+        Barbarian(),
+        Barbarian()
+    ]
 
-    enemies = Team(3)
+    ai_team = [
+        Elf(),
+        Barbarian(),
+        Elf()
+    ]
 
-    enemy1 = Barbarian(...)
-    enemy2 = Goblin(...)
-    enemy3 = Barbarin(...)
+    entity = select_from_list("Select which entity you want to use:", player_team)
+    action = Action.ATTACK if input("Do you want to [a]ttack or use [s]pecial powerup? [a/s]: ").lower() == "a" else Action.SPECIAL_POWERUP
+    target = select_from_list("Select which enemy do you want to attack:", ai_team)
 
-    enemies.add(enemy1)\
-        .add(enemy2)\
-        .add(enemy3)
-    
-    """
+    #entity.action(target)
