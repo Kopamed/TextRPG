@@ -1,5 +1,7 @@
 from __future__ import annotations
-from typing import List
+
+from dataclasses import dataclass
+from typing import List, Callable
 from abc import abstractmethod, ABC
 from enum import Enum
 import yaml
@@ -21,10 +23,11 @@ class EntityType(PrintableEnum):
     KNIGHT = 4
 
 
-class Action(PrintableEnum):
-    """Enum containing all the existing action types"""
-    ATTACK = 0
-    SPECIAL_POWERUP = 1
+@dataclass
+class Action:
+    name: str
+    description: str
+    execute: Callable
 
 
 class Entity(ABC):

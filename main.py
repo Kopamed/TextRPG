@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from entity import *
 
 
@@ -17,6 +19,19 @@ def select_from_list(prompt: str, arr: List[Entity]) -> Entity:
 
         if n < len(arr):
             return arr[n]
+
+
+@dataclass
+class Turn:
+    player: int
+    moves: List[Move]
+
+
+@dataclass
+class Move:
+    entity: Entity
+    action: Action
+    target: Entity
 
 
 if __name__ == "__main__":
