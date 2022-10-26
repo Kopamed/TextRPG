@@ -6,10 +6,9 @@ from entity import *
 def select_from_list(prompt: str, arr: List[Entity]) -> Entity:
     while True:
         print(prompt)
-        # TODO: Display team[i] stats such as attack and health
         print(
             "\n".join(
-                f"[{i}] {arr[i].type}: {arr[i].name}" for i in range(len(arr))
+                f"[{i}] {arr[i]}" for i in range(len(arr))
             )
         )
         try:
